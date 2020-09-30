@@ -1,7 +1,6 @@
-#import library for the use of images
+
 import Image
  
-#Method that creates dictionary from Life facts
 def LifeDictionary(path_name):
         try:
             myFile = open(path_name, 'r')
@@ -18,8 +17,7 @@ def LifeDictionary(path_name):
             lifeDict[a] = b
          
         return lifeDict
- 
-#Method that creates dictionary from Historic facts     
+   
 def HistoryDictionary(path_name):
         try:
             myFile = open(path_name, 'r')
@@ -38,14 +36,12 @@ def HistoryDictionary(path_name):
         return historyDict
          
 def main():
-    #Data members to open text files
+  
     filename1 = "Life_Mindblow.txt"
     filename2 = "History_Mindblow.txt"
      
-    #Data member to create text file
     reward_file = open('Book of Awe.txt', 'w')
      
-    #Data members to store dictionaries 
     L = LifeDictionary(filename1)
     H = HistoryDictionary(filename2)
      
@@ -76,21 +72,17 @@ def main():
     reward_file.close()
     print "Your facts have been saved in a book! Congratulations! "
      
-#class for mindblowing facts for life
 class Mindblow_Life:
-    #initializer for the user choice and the specific dictionary 
     def __init__(self, choice, LDict):
         self.choice = choice
         self.LDict = LDict
          
-    #method to search for a fact in the specific dictionary
     def SearchFact(self):
         for i in self.choice:
             if self.LDict.has_key(i):
                 i = self.LDict[self.choice]
                 return i
      
-    #method to assign image based on the specific fact
     def SetImage(self):
         for i in self.choice:
             if self.LDict.has_key(i):
@@ -98,27 +90,22 @@ class Mindblow_Life:
                 image = Image.open('Life'+ x +'.jpg')
                 image.show()
      
-    #method to store fact in the reward file        
     def BookFile(self):
         Book = []
         Book.append(self.LDict[self.choice])
         return Book
  
-#class for mindblowing facts for history
 class Mindblow_History:
-    #initializer for the user choice and the specific dictionary 
     def __init__(self, choice, HDict):
         self.choice = choice
         self.HDict = HDict
      
-    #method to search for a fact in the specific dictionary
     def SearchFact(self):
         for i in self.choice:
             if self.HDict.has_key(i):
                 i = self.HDict[self.choice]
                 return i
      
-    #method to assign image based on the specific fact  
     def SetImage(self):
         for i in self.choice:
             if self.HDict.has_key(i):
@@ -126,7 +113,6 @@ class Mindblow_History:
                 image = Image.open('History'+ x +'.jpg')
                 image.show()
      
-    #method to store fact in the reward file
     def BookFile(self):
         Book = []
         Book.append(self.HDict[self.choice])
